@@ -37,6 +37,8 @@ const pastConferences = conferences.filter(c => c!=activeConference)
       <li class="desktop-dropdown">
         <a href="/events" class="desktop-dropdown-toggle">Events</a>
         <ul class="desktop-dropdown-menu">
+            <!-- Tech-Nol-Hack page -->
+            <li><a href="/technolhack">Tech-Nol-Hack 2025</a></li>
           {activeConference && <li><a href={`/conference-${activeConference.sys.id}`}>{activeConference.fields.name}</a></li>}
           {pastConferences.map(c => (
             <li><a href={`/conference-${c.sys.id}`}>{c.fields.name}</a></li>
@@ -94,6 +96,8 @@ const pastConferences = conferences.filter(c => c!=activeConference)
 
         <div class="main-menu-sub">
             <ul class="mobile-dropdown-menu" id="conferenceDropdown">
+                <!-- Tech-Nol-Hack page -->
+                <li><a href="/technolhack">Tech-Nol-Hack 2025</a></li>
               {activeConference && <li><a href={`/conference-${activeConference.sys.id}`}>{activeConference.fields.name}</a></li>}
               {pastConferences.map(c => (
                 <li><a href={`/conference-`}>{c.sys.id}</a></li>
