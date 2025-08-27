@@ -14,7 +14,8 @@
     </p>
     <div class="buttons-container">
       <button class="sponsor-button">SPONSOR</button>
-      <button class="conference-button">CONFERENCE</button>
+      <!-- <button class="conference-button">CONFERENCE</button> -->
+      <button class="tech-nol-hack">TECH-NOL-HACK</button>
     </div>
   </div>
 </article>
@@ -73,8 +74,21 @@
     font-weight: bold;
     padding: 10px 25px;
   }
+
+    .tech-nol-hack {
+    border: 4px solid white;
+    color: #ffbce5;
+    font-size: 16px;
+    background-color: transparent;
+    border-radius: 36px;
+    box-shadow: 4px 4px 0 4px #255b56;
+    font-weight: bold;
+    padding: 10px 25px;
+  }
+  
   .sponsor-button:hover,
-  .conference-button:hover {
+  .conference-button:hover,
+  .tech-nol-hack:hover {
     box-shadow: none;
   }
 
@@ -319,3 +333,18 @@
     }
   }
 </style>
+
+<!-- Still in HomePage.astro, at the bottom of the file -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.sponsor-button')?.addEventListener('click', () => {
+      window.location.href = '/sponsors';
+    });
+    document.querySelector('.conference-button')?.addEventListener('click', () => {
+      window.location.href = '/conference';
+    });
+    document.querySelector('.tech-nol-hack')?.addEventListener('click', () => {
+      window.location.href = '/technolhack';
+    });
+  });
+</script>

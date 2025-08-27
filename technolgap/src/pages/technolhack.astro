@@ -1,0 +1,465 @@
+---
+import TWLayout from "../layouts/TWLayout.astro";
+import ScrollArrow from "../components/ScrollArrow.astro";
+
+const space   = import.meta.env.CONTENTFUL_SPACE_ID;
+const envName = import.meta.env.CONTENTFUL_ENVIRONMENT || "master";
+
+// flip to true for drafts
+const usePreview = false;
+
+const token = usePreview
+  ? import.meta.env.CONTENTFUL_PREVIEW_TOKEN
+  : import.meta.env.CONTENTFUL_DELIVERY_TOKEN;
+
+// GraphQL endpoint
+const endpoint = `https://graphql.contentful.com/content/v1/spaces/${space}/environments/${envName}`;
+
+const query = /* GraphQL */ `
+  query GetCollabTGH($limit: Int!, $preview: Boolean!) {
+    collabtghCollection(limit: $limit, order: name_ASC, preview: $preview) {
+      items {
+        name
+        link
+        logo {
+          url(transform: { width: 320, height: 160, resizeStrategy: PAD, backgroundColor: "rgb:ffffff" })
+          description
+        }
+      }
+    }
+  }
+`;
+
+let collaborators: { name: string; url: string; logo: string; alt: string }[] = [];
+
+try {
+  const res = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ query, variables: { limit: 100, preview: usePreview } }),
+  });
+
+  if (!res.ok) {
+    console.error("Contentful error", res.status, await res.text());
+  } else {
+    const data = await res.json();
+    const items = data?.data?.collabtghCollection?.items ?? [];
+    collaborators = items.filter(Boolean).map((it: any) => ({
+      name: it.name,
+      url: it.link,
+      logo: it.logo?.url?.startsWith("http") ? it.logo.url : `https:${it.logo?.url || ""}`,
+      alt: it.logo?.description || it.name,
+    }));
+  }
+} catch (e) {
+  console.error("Contentful fetch failed", e);
+}
+---
+
+<TWLayout title="Tech-Nol-Hack 2025">
+
+<!-- Top bar -->
+<div class="flex items-center justify-between px-6 py-4 bg-[#193236] text-[#f4e7d7]">
+  <a href="https://technolgap.org" class="flex items-center gap-2 hover:underline">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    </svg>
+    Back to Website
+  </a>
+  <p class="text-sm">
+    Contact: <a href="mailto:technolgap@gmail.com" class="underline hover:text-[#ff94d2]">technolgap@gmail.com</a>
+  </p>
+</div>
+
+<!-- Hero Section -->
+<section class="gradient-bg text-white py-20">
+  <div class="container mx-auto px-6">
+
+    <div class="flex flex-col md:flex-row items-center gap-10">
+
+      <div class="md:w-2/3 text-center md:text-left">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">Tech-Nol-Hack 2025</h1>
+        <p class="text-xl md:text-2xl mb-2 max-w-3xl leading-relaxed mx-auto md:mx-0">
+          Join us for a 2-day, daytime-only coding event uniting Carleton’s tech community through collaboration, creativity, and innovation.
+        </p>
+        <p class="mt-2 mb-8 max-w-lg mx-auto md:mx-0 text-center md:text-left 
+            text-[#f4e7d7] italic">
+          All are welcome - diverse backgrounds, identities, and experiences.
+        </p>
+        <div class="bg-white/20 backdrop-blur-sm rounded-lg p-6 mb-8 inline-block">
+          <div class="text-2xl font-semibold mb-2">October 4-5, 2025</div>
+          <div class="text-lg">Saturday & Sunday - 10 am to 7 pm</div>
+        </div>
+        <div>
+          <button onclick="window.open('https://technolgap.org/technolhack', '_blank')"
+            class="font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
+            style="background-color: #a9544d; color: #f4e7d7;">
+            Registration Opens Soon!
+          </button>
+        </div>
+      </div>
+      <div class="md:w-1/3 flex justify-center md:justify-end">
+        <img src="/kittenface2.svg" alt="Tech-Nol-Hack kitten" class="w-72 h-72 md:w-96 md:h-96" />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- Schedule Section -->
+    <section class="py-16" style="background-color: #f4e7d7;">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12" style="color: #193236;">Event Schedule - Not Finalized Yet!</h2>
+            <div class="max-w-4xl mx-auto">
+                <!-- Day Selection Tabs -->
+                <div class="flex justify-center mb-8">
+                    <div class="bg-gray-100 rounded-lg p-1 flex">
+                        <button id="day1-tab" type="button"
+                            class="px-6 py-3 rounded-md font-semibold transition-all duration-300 text-white"
+                            style="background-color: #3f6a64;">
+                            Day 1 - Saturday, Oct 4
+                        </button>
+                        <button id="day2-tab" type="button"
+                            class="px-6 py-3 rounded-md font-semibold transition-all duration-300 text-gray-600 hover:text-gray-800">
+                            Day 2 - Sunday, Oct 5
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Day 1 Schedule -->
+                <div id="day1-schedule" class="rounded-xl p-8 card-hover"
+                    style="background: linear-gradient(135deg, #f4e7d7 0%, rgba(63, 106, 100, 0.1) 100%);">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr style="border-bottom: 2px solid #3f6a64;">
+                                    <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Item
+                                    </th>
+                                    <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Room
+                                    </th>
+                                    <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Time
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody style="color: #193236;">
+                                <tr class="hover:bg-white/50 transition-colors"
+                                    style="border-bottom: 1px solid #3f6a64;">
+                                    <td class="py-4 px-4 font-medium text-lg">Registration & Check-in</td>
+                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">9:00 AM - 10:00 AM</td>
+                                </tr>
+                                <tr class="hover:bg-white/50 transition-colors"
+                                    style="border-bottom: 1px solid #3f6a64;">
+                                    <td class="py-4 px-4 font-medium text-lg">Opening Ceremony</td>
+                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">10:00 AM - 11:00 AM</td>
+                                </tr>
+                                <tr class="hover:bg-white/50 transition-colors"
+                                    style="border-bottom: 1px solid #3f6a64;">
+                                    <td class="py-4 px-4 font-medium text-lg">Team Formation</td>
+                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">11:00 AM - 11:30 AM</td>
+                                </tr>
+                                <tr class="hover:bg-white/50 transition-colors"
+                                    style="border-bottom: 1px solid #3f6a64;">
+                                    <td class="py-4 px-4 font-medium text-lg">Hacking Begins!</td>
+                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">11:00 AM - ...</td>
+                                </tr>
+                                <tr class="hover:bg-white/50 transition-colors"
+                                    style="border-bottom: 1px solid #3f6a64;">
+                                    <td class="py-4 px-4 font-medium text-lg">Lunch</td>
+                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">1:00 PM - 2:00 PM</td>
+                                </tr>
+                                <!-- <tr class="hover:bg-white/50 transition-colors"
+                                    style="border-bottom: 1px solid #3f6a64;">
+                                    <td class="py-4 px-4 font-medium text-lg">Disco.Dev</td>
+                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">2:00 PM - 7:00 PM</td>
+                                </tr> -->
+                                <tr class="hover:bg-white/50 transition-colors"
+                                    style="border-bottom: 1px solid #3f6a64;">
+                                    <td class="py-4 px-4 font-medium text-lg">Workshop 1</td>
+                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">3:00 PM - 4:30 PM</td>
+                                </tr>
+                                <tr class="hover:bg-white/50 transition-colors"
+                                    style="border-bottom: 1px solid #3f6a64;">
+                                    <td class="py-4 px-4 font-medium text-lg">Workshop 2</td>
+                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">4:30 PM - 5:30 PM</td>
+                                </tr>
+                                <tr class="hover:bg-white/50 transition-colors">
+                                    <td class="py-4 px-4 font-medium text-lg">Evening Snacks</td>
+                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">5:30 PM - 6:00 PM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Day 2 Schedule -->
+                <div id="day2-schedule" class="rounded-xl p-8 card-hover hidden"
+                    style="background: linear-gradient(135deg, #f4e7d7 0%, rgba(169, 84, 77, 0.1) 100%);">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr style="border-bottom: 2px solid #a9544d;">
+                                    <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Item
+                                    </th>
+                                    <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Room
+                                    </th>
+                                    <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Time
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody style="color: #193236;">
+                                <tr class="hover:bg-white/50 transition-colors"
+                                    style="border-bottom: 1px solid #a9544d;">
+                                    <td class="py-4 px-4 font-medium text-lg">Breakfast & Mentoring</td>
+                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">9:00 AM - 10:00 AM</td>
+                                </tr>
+                                <tr class="hover:bg-white/50 transition-colors"
+                                    style="border-bottom: 1px solid #a9544d;">
+                                    <td class="py-4 px-4 font-medium text-lg">Club EXPO & Career Fair</td>
+                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">10:00 AM - 12:00 PM</td>
+                                </tr>
+                                <tr class="hover:bg-white/50 transition-colors"
+                                    style="border-bottom: 1px solid #a9544d;">
+                                    <td class="py-4 px-4 font-medium text-lg">Lunch Break</td>
+                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">12:00 PM - 1:00 PM</td>
+                                </tr>
+                                <tr class="hover:bg-white/50 transition-colors"
+                                    style="border-bottom: 1px solid #a9544d;">
+                                    <td class="py-4 px-4 font-medium text-lg">Workshop 3</td>
+                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">1:00 PM - 2:00 PM</td>
+                                </tr>
+                                <tr class="hover:bg-white/50 transition-colors"
+                                    style="border-bottom: 1px solid #a9544d;">
+                                    <td class="py-4 px-4 font-medium text-lg">Final Submissions</td>
+                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">4:00 PM - 4:30 PM</td>
+                                </tr>
+                                <tr class="hover:bg-white/50 transition-colors"
+                                    style="border-bottom: 1px solid #a9544d;">
+                                    <td class="py-4 px-4 font-medium text-lg">Project Presentations</td>
+                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">5:00 PM - 6:00 PM</td>
+                                </tr>
+                                <tr class="hover:bg-white/50 transition-colors">
+                                    <td class="py-4 px-4 font-medium text-lg">Awards & Closing</td>
+                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">6:00 PM - 7:00 PM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16" style="background-color: #3f6a64;">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12" style="color: #f4e7d7;">Frequently Asked Questions</h2>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="rounded-lg shadow-md card-hover" style="background-color: #f4e7d7;">
+                    <button onclick="toggleFAQ('faq1')" class="w-full text-left p-6 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-semibold" style="color: #193236;">Who can participate in Tech Nol
+                                Hack?</h3>
+                            <span id="faq1-icon" class="text-2xl" style="color: #3f6a64;">+</span>
+                        </div>
+                    </button>
+                    <div id="faq1" class="hidden px-6 pb-6">
+                        <p class="leading-relaxed" style="color: #3f6a64;">Tech Nol Hack is open to all students,
+                            professionals, and tech enthusiasts aged 16 and above. Whether you're a beginner or an
+                            expert, we welcome participants from all skill levels, backgrounds and identities.</p>
+                    </div>
+                </div>
+
+                <div class="rounded-lg shadow-md card-hover" style="background-color: #f4e7d7;">
+                    <button onclick="toggleFAQ('faq2')" class="w-full text-left p-6 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-semibold" style="color: #193236;">What should I bring to the
+                                hackathon?</h3>
+                            <span id="faq2-icon" class="text-2xl" style="color: #3f6a64;">+</span>
+                        </div>
+                    </button>
+                    <div id="faq2" class="hidden px-6 pb-6">
+                        <p class="leading-relaxed" style="color: #3f6a64;">Bring your laptop, chargers, any hardware you
+                            might need, and a positive attitude! We'll provide lunch, light snacks (FCFS), WiFi, and workspace. Don't
+                            forget your reusable WATER BOTTLE and mug if you like tea :)</p>
+                    </div>
+                </div>
+
+                <div class="rounded-lg shadow-md card-hover" style="background-color: #f4e7d7;">
+                    <button onclick="toggleFAQ('faq3')" class="w-full text-left p-6 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-semibold" style="color: #193236;">Are there prizes for winners?</h3>
+                            <span id="faq3-icon" class="text-2xl" style="color: #3f6a64;">+</span>
+                        </div>
+                    </button>
+                    <div id="faq3" class="hidden px-6 pb-6">
+                        <p class="leading-relaxed" style="color: #3f6a64;">Yes! We have amazing prizes by the community, for the community (contributed by Carleton's Tech Community) - with thanks to our sponsors. Total prize value: TBA!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaborators Section -->
+    <section class="py-16" style="background-color:#f4e7d7;">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12" style="color:#193236;">Supporting Collaborators (more on the way!)</h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          {collaborators.map((c: { name: string; url: string; logo: string; alt: string }) => (
+            <figure class="bg-gray-50 rounded-lg p-6 flex flex-col items-center justify-center card-hover">
+              <a href={c.url} target="_blank" rel="noopener noreferrer" class="block">
+                <img src={c.logo} alt={c.alt} class="h-16 w-auto object-contain" loading="lazy" />
+              </a>
+              <figcaption class="mt-3 text-sm font-semibold text-center" style="color:#193236;">
+                {c.name}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Sponsors Section -->
+    <section class="py-16 bg-gray-900 text-white" style="background-color: #193236;">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Our Shining Sponsors</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+                <div class="col-span-full text-center mb-8">
+                  <h3 class="text-2xl font-semibold mb-6 text-yellow-400">Special Partner</h3>
+                  
+                  <div class="bg-white rounded-lg p-8 inline-flex items-center justify-center shadow-lg mx-auto max-w-xs">
+                    <img 
+                      src="/csss.png" 
+                      alt="Carleton Science Student Society" 
+                      class="h-40 w-auto object-contain"
+                      loading="lazy" 
+                    />
+                  </div>
+
+                  <p class="text-lg font-medium mt-6 text-white">
+                    Carleton Science Student Society
+                  </p>
+                </div>
+
+
+
+                <!-- Gold Sponsors
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold mb-4 text-yellow-300">Core Sponsors</h3>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 card-hover mb-4">
+                        <svg class="w-16 h-16 text-yellow-300 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg>
+                        <p class="font-medium mt-2">InnovateLab</p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-300">Alpha/Beta Sponsors</h3>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 card-hover mb-4">
+                        <svg class="w-16 h-16 text-gray-300 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                        <p class="font-medium mt-2">CodeCraft</p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold mb-4 text-orange-300">Nano Sponsors</h3>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 card-hover mb-4">
+                        <svg class="w-16 h-16 text-orange-300 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+                        </svg>
+                        <p class="font-medium mt-2">StartupHub</p>
+                    </div>
+                </div> -->
+
+
+
+            </div>
+        </div>
+    </section>
+    <ScrollArrow href="#top"/>
+
+  <script is:inline>
+    function toggleFAQ(faqId) {
+      const faqContent = document.getElementById(faqId);
+      const faqIcon = document.getElementById(faqId + '-icon');
+
+      if (faqContent.classList.contains('hidden')) {
+        faqContent.classList.remove('hidden');
+        faqIcon.textContent = '−';
+      } else {
+        faqContent.classList.add('hidden');
+        faqIcon.textContent = '+';
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const day1Tab = document.getElementById("day1-tab");
+      const day2Tab = document.getElementById("day2-tab");
+      const day1 = document.getElementById("day1-schedule");
+      const day2 = document.getElementById("day2-schedule");
+
+      function activate(tabEl, scheduleEl, otherTabEl, otherScheduleEl) {
+        scheduleEl.classList.remove("hidden");
+        otherScheduleEl.classList.add("hidden");
+
+        tabEl.style.backgroundColor = "#3f6a64";
+        tabEl.style.color = "#f4e7d7";
+        otherTabEl.style.backgroundColor = "transparent";
+        otherTabEl.style.color = "#193236";
+      }
+
+      activate(day1Tab, day1, day2Tab, day2);
+
+      day1Tab.addEventListener("click", () =>
+        activate(day1Tab, day1, day2Tab, day2)
+      );
+      day2Tab.addEventListener("click", () =>
+        activate(day2Tab, day2, day1Tab, day1)
+      );
+    });
+  </script>
+
+</TWLayout>
+
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  body { font-family: 'Inter', sans-serif; }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, #3f6a64 0%, #193236 100%);
+  }
+  .card-hover { transition: transform .3s ease, box-shadow .3s ease; }
+  .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,.1); }
+
+</style>
+
