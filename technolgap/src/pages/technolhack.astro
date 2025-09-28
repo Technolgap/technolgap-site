@@ -61,418 +61,397 @@ try {
 
 <TWLayout title="Tech-Nol-Hack 2025">
 
-<!-- Top bar -->
-<div class="flex items-center justify-between px-6 py-4 bg-[#193236] text-[#f4e7d7]">
-  <a href="https://technolgap.org" class="flex items-center gap-2 hover:underline">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-    </svg>
-    Back to Website
-  </a>
-  <p class="text-sm">
-    Contact: <a href="mailto:technolgap@gmail.com" class="underline hover:text-[#ff94d2]">technolgap@gmail.com</a>
-  </p>
-</div>
-
-<!-- Hero Section -->
-<section class="gradient-bg text-white py-20">
-  <div class="container mx-auto px-6">
-
-    <div class="flex flex-col md:flex-row items-center gap-10">
-
-      <div class="md:w-2/3 text-center md:text-left">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6">Tech-Nol-Hack 2025</h1>
-        <p class="text-xl md:text-2xl mb-2 max-w-3xl leading-relaxed mx-auto md:mx-0">
-          Join us for a 2-day, daytime-only coding event uniting Carleton’s tech community through collaboration, creativity, and innovation.
-        </p>
-        <p class="mt-2 mb-8 max-w-lg mx-auto md:mx-0 text-center md:text-left 
-            text-[#f4e7d7] italic">
-          All are welcome - diverse backgrounds, identities, and experiences.
-        </p>
-        <div class="bg-white/20 backdrop-blur-sm rounded-lg p-6 mb-8 inline-block">
-          <div class="text-2xl font-semibold mb-2">October 4-5, 2025</div>
-          <div class="text-lg">Saturday & Sunday - 10 am to 7 pm</div>
-        </div>
-        <div>
-          <button onclick="window.open('https://forms.gle/PSRBsnfDaK3nV1JGA', '_blank')"
-            class="font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
-            style="background-color: #a9544d; color: #f4e7d7;">
-            Registration Now Open!
-          </button>
-        </div>
-      </div>
-      <div class="md:w-1/3 flex justify-center md:justify-end">
-        <img src="/kittenface2.svg" alt="Tech-Nol-Hack kitten" class="w-72 h-72 md:w-96 md:h-96" />
-      </div>
-
-    </div>
+  <!-- Top bar -->
+  <div class="flex items-center justify-between px-6 py-4 bg-[#193236] text-[#f4e7d7]">
+    <a href="https://technolgap.org" class="flex items-center gap-2 hover:underline">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      Back to Website
+    </a>
+    <p class="text-sm">
+      Contact: <a href="mailto:technolgap@gmail.com" class="underline hover:text-[#ff94d2]">technolgap@gmail.com</a>
+    </p>
   </div>
-</section>
 
-
-
-    <!-- Schedule Section -->
-    <section class="py-16" style="background-color: #f4e7d7;">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12" style="color: #193236;">Event Schedule - Not Finalized Yet!</h2>
-            <div class="max-w-4xl mx-auto">
-                <!-- Day Selection Tabs -->
-                <div class="flex justify-center mb-8">
-                    <div class="bg-gray-100 rounded-lg p-1 flex">
-                        <button id="day1-tab" type="button"
-                            class="px-6 py-3 rounded-md font-semibold transition-all duration-300 text-white"
-                            style="background-color: #3f6a64;">
-                            Day 1 - Saturday, Oct 4
-                        </button>
-                        <button id="day2-tab" type="button"
-                            class="px-6 py-3 rounded-md font-semibold transition-all duration-300 text-gray-600 hover:text-gray-800">
-                            Day 2 - Sunday, Oct 5
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Day 1 Schedule -->
-                <div id="day1-schedule" class="rounded-xl p-8 card-hover"
-                    style="background: linear-gradient(135deg, #f4e7d7 0%, rgba(63, 106, 100, 0.1) 100%);">
-                  <div class="overflow-x-auto">
-                    <table class="w-full">
-                      <thead>
-                        <tr style="border-bottom: 2px solid #3f6a64;">
-                          <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Activity</th>
-                          <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Room</th>
-                          <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Time</th>
-                        </tr>
-                      </thead>
-                      <tbody style="color: #193236;">
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
-                          <td class="py-4 px-4 font-medium text-lg">Check In</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">Lobby space outside RB 2200</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">9:00 AM – 10:00 AM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
-                          <td class="py-4 px-4 font-medium text-lg">Opening Ceremony & Theme Reveal</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">RB 2200</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">10:00 AM – 11:00 AM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
-                          <td class="py-4 px-4 font-medium text-lg">Find your people (team formation)</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">RB 2200</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">11:00 AM – 11:30 AM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
-                          <td class="py-4 px-4 font-medium text-lg">Workshop 1 (Game Dev)</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">11:30 AM – 1:00 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
-                          <td class="py-4 px-4 font-medium text-lg">BitBeat Bash</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">RB 2200</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">12:30 PM – 7:00 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
-                          <td class="py-4 px-4 font-medium text-lg">Lunch + Networking</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">RB 3112</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">1:00 PM – 2:00 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
-                          <td class="py-4 px-4 font-medium text-lg">Code Poetry</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">2:00 PM – 2:30 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
-                          <td class="py-4 px-4 font-medium text-lg">Workshop 2 (Blueprint)</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">2:30 PM – 4:00 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
-                          <td class="py-4 px-4 font-medium text-lg">Workshop 3</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">4:00 PM – 5:00 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
-                          <td class="py-4 px-4 font-medium text-lg">Evening Snacks</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">RB 3112</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">5:00 PM – 5:30 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
-                          <td class="py-4 px-4 font-medium text-lg">Workshop 4</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">5:30 PM – 6:00 PM</td>
-                        </tr>
-
-                        <!-- Parallel sessions -->
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
-                          <td class="py-4 px-4 font-medium text-lg">Logo Remix</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">6:00 PM – 6:30 PM</td>
-                        </tr>
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
-                          <td class="py-4 px-4 font-medium text-lg">“Pitch, Please!”</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">6:00 PM – 6:30 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors">
-                          <td class="py-4 px-4 font-medium text-lg">That’s it for the day!<br><span class="text-sm opacity-80">Don’t forget to commit your progress!</span></td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">—</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">7:00 PM</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                <!-- Day 2 Schedule -->
-                <div id="day2-schedule" class="rounded-xl p-8 card-hover hidden"
-                    style="background: linear-gradient(135deg, #f4e7d7 0%, rgba(169, 84, 77, 0.1) 100%);">
-                  <div class="overflow-x-auto">
-                    <table class="w-full">
-                      <thead>
-                        <tr style="border-bottom: 2px solid #a9544d;">
-                          <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Activity</th>
-                          <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Room</th>
-                          <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Time</th>
-                        </tr>
-                      </thead>
-                      <tbody style="color: #193236;">
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
-                          <td class="py-4 px-4 font-medium text-lg">Light Breakfast</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">RB 3112</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">9:30 AM – 10:00 AM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
-                          <td class="py-4 px-4 font-medium text-lg">Network Nest</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">10:00 AM – 12:00 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
-                          <td class="py-4 px-4 font-medium text-lg">BitBeat Bash 2.0</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">RB 2200</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">10:00 AM – 4:00 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
-                          <td class="py-4 px-4 font-medium text-lg">Workshop 5</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">12:00 PM – 1:00 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
-                          <td class="py-4 px-4 font-medium text-lg">Lunch + Networking</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">RB 3112</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">1:00 PM – 2:00 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
-                          <td class="py-4 px-4 font-medium text-lg">Workshop 6</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">2:00 PM – 3:30 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
-                          <td class="py-4 px-4 font-medium text-lg">Project Submission Deadline</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">Devpost</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">4:00 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
-                          <td class="py-4 px-4 font-medium text-lg">Showcase Queue Announced</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">Discord + Email</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">4:00 PM – 4:30 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
-                          <td class="py-4 px-4 font-medium text-lg">Project Showcase</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">4:30 PM – 5:30 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
-                          <td class="py-4 px-4 font-medium text-lg">Light Snacks</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">RB 3112</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">5:30 PM – 6:00 PM</td>
-                        </tr>
-
-                        <tr class="hover:bg-white/50 transition-colors">
-                          <td class="py-4 px-4 font-medium text-lg">Awards & Closing</td>
-                          <td class="py-4 px-4" style="color: #3f6a64;">RB 2200</td>
-                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">6:00 PM – 7:00 PM</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-            </div>
+  <!-- Hero Section -->
+  <section class="gradient-bg text-white py-20">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <div class="md:w-2/3 text-center md:text-left">
+          <h1 class="text-5xl md:text-7xl font-bold mb-6">Tech-Nol-Hack 2025</h1>
+          <p class="text-xl md:text-2xl mb-2 max-w-3xl leading-relaxed mx-auto md:mx-0">
+            Join us for a 2-day, daytime-only coding event uniting Carleton’s tech community through collaboration, creativity, and innovation.
+          </p>
+          <p class="mt-2 mb-8 max-w-lg mx-auto md:mx-0 text-center md:text-left text-[#f4e7d7] italic">
+            All are welcome - diverse backgrounds, identities, and experiences.
+          </p>
+          <div class="bg-white/20 backdrop-blur-sm rounded-lg p-6 mb-8 inline-block">
+            <div class="text-2xl font-semibold mb-2">October 4-5, 2025</div>
+            <div class="text-lg">Saturday & Sunday - 10 am to 7 pm</div>
+          </div>
+          <div>
+            <button onclick="window.open('https://forms.gle/PSRBsnfDaK3nV1JGA', '_blank')"
+              class="font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
+              style="background-color: #a9544d; color: #f4e7d7; cursor:pointer;">
+              Registration Now Open!
+            </button>
+          </div>
         </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-16" style="background-color: #3f6a64;">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12" style="color: #f4e7d7;">Frequently Asked Questions</h2>
-            <div class="max-w-4xl mx-auto space-y-6">
-                <div class="rounded-lg shadow-md card-hover" style="background-color: #f4e7d7;">
-                    <button onclick="toggleFAQ('faq1')" class="w-full text-left p-6 focus:outline-none">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-xl font-semibold" style="color: #193236;">Who can participate in Tech Nol
-                                Hack?</h3>
-                            <span id="faq1-icon" class="text-2xl" style="color: #3f6a64;">+</span>
-                        </div>
-                    </button>
-                    <div id="faq1" class="hidden px-6 pb-6">
-                        <p class="leading-relaxed" style="color: #3f6a64;">Tech Nol Hack is open to all students,
-                            professionals, and tech enthusiasts aged 16 and above. Whether you're a beginner or an
-                            expert, we welcome participants from all skill levels, backgrounds and identities.</p>
-                    </div>
-                </div>
-
-                <div class="rounded-lg shadow-md card-hover" style="background-color: #f4e7d7;">
-                    <button onclick="toggleFAQ('faq2')" class="w-full text-left p-6 focus:outline-none">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-xl font-semibold" style="color: #193236;">What should I bring to the
-                                hackathon?</h3>
-                            <span id="faq2-icon" class="text-2xl" style="color: #3f6a64;">+</span>
-                        </div>
-                    </button>
-                    <div id="faq2" class="hidden px-6 pb-6">
-                        <p class="leading-relaxed" style="color: #3f6a64;">Bring your laptop, chargers, any hardware you
-                            might need, and a positive attitude! We'll provide lunch, light snacks (FCFS), WiFi, and workspace. Don't
-                            forget your reusable WATER BOTTLE and mug if you like tea :)</p>
-                    </div>
-                </div>
-
-                <div class="rounded-lg shadow-md card-hover" style="background-color: #f4e7d7;">
-                    <button onclick="toggleFAQ('faq3')" class="w-full text-left p-6 focus:outline-none">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-xl font-semibold" style="color: #193236;">Are there prizes for winners?</h3>
-                            <span id="faq3-icon" class="text-2xl" style="color: #3f6a64;">+</span>
-                        </div>
-                    </button>
-                    <div id="faq3" class="hidden px-6 pb-6">
-                        <p class="leading-relaxed" style="color: #3f6a64;">Yes! We have amazing prizes by the community, for the community (contributed by Carleton's Tech Community) - with thanks to our sponsors. Total prize value: TBA!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Collaborators Section -->
-    <section class="py-16" style="background-color:#f4e7d7;">
-      <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center mb-12" style="color:#193236;">Supporting Collaborators (more on the way!)</h2>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-          {collaborators.map((c: { name: string; url: string; logo: string; alt: string }) => (
-            <figure class="bg-gray-50 rounded-lg p-6 flex flex-col items-center justify-center card-hover">
-              <a href={c.url} target="_blank" rel="noopener noreferrer" class="block">
-                <img src={c.logo} alt={c.alt} class="h-16 w-auto object-contain" loading="lazy" />
-              </a>
-              <figcaption class="mt-3 text-sm font-semibold text-center" style="color:#193236;">
-                {c.name}
-              </figcaption>
-            </figure>
-          ))}
+        <div class="md:w-1/3 flex justify-center md:justify-end">
+          <img src="/kittenface2.svg" alt="Tech-Nol-Hack kitten" class="w-72 h-72 md:w-96 md:h-96" />
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-
-
-    <!-- Sponsors Section -->
-    <section class="py-16 bg-gray-900 text-white" style="background-color: #193236;">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12">Our Shining Sponsors</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-
-              <div class="col-span-full text-center mb-8">
-                <h3 class="text-2xl font-semibold mb-6 text-yellow-400">Special Partner</h3>
-
-                <div class="bg-white rounded-lg p-8 inline-flex items-center justify-center shadow-lg mx-auto max-w-xs">
-                  <a href="https://www.sciencesociety.ca/" target="_blank" rel="noopener noreferrer">
-                    <img 
-                      src="/csss.png" 
-                      alt="Carleton Science Student Society" 
-                      class="h-40 w-auto object-contain"
-                      loading="lazy" 
-                    />
-                  </a>
-                </div>
-
-                <p class="text-lg font-medium mt-6 text-white">
-                  Carleton Science Student Society
-                </p>
-              </div>
-
-
-
-
-                <!-- Gold Sponsors
-                <div class="text-center">
-                    <h3 class="text-xl font-semibold mb-4 text-yellow-300">Core Sponsors</h3>
-                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 card-hover mb-4">
-                        <svg class="w-16 h-16 text-yellow-300 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                        </svg>
-                        <p class="font-medium mt-2">InnovateLab</p>
-                    </div>
-                </div> -->
-
-                <div class="text-center">
-                  <h3 class="text-xl font-semibold mb-4 text-gray-300">Alpha Sponsors</h3>
-
-                  <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 card-hover mb-4">
-                    <div class="bg-white rounded-lg p-8 inline-flex items-center justify-center shadow-lg mx-auto max-w-xs">
-                      <a href="https://www.linkedin.com/in/britney-baker-01b741160?trk=contact-info" target="_blank" rel="noopener noreferrer">
-                        <img 
-                          src="/Britneybaker.png" 
-                          alt="Britney Baker" 
-                          class="h-40 w-auto object-contain"
-                          loading="lazy" 
-                        />
-                      </a>
-                    </div>
-
-                    <p class="font-medium mt-2">Britney Baker</p>
-                  </div>
-                </div>
-
-
-                <div class="text-center">
-                  <h3 class="text-xl font-semibold mb-4 text-orange-300">Nano Sponsors</h3>
-                  <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 card-hover mb-4">
-                    <a href="https://prototyp3.org/" target="_blank" rel="noopener noreferrer" class="flex justify-center">
-                      <img 
-                        src="/p3.png" 
-                        alt="Prototyp3 Network" 
-                        class="h-24 w-auto object-contain"
-                        loading="lazy" 
-                      />
-                    </a>
-                    <p class="font-medium mt-2">Prototyp3 Network</p>
-                  </div>
-                </div>
-
-
-
-
-
-            </div>
+  <!-- Schedule Section -->
+  <section class="py-16" style="background-color: #f4e7d7;">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12" style="color: #193236;">Event Schedule</h2>
+      <div class="max-w-4xl mx-auto">
+        <!-- Day Selection Tabs -->
+        <div class="flex justify-center mb-8">
+          <div class="bg-gray-100 rounded-lg p-1 flex">
+            <button id="day1-tab" type="button"
+              class="px-6 py-3 rounded-md font-semibold transition-all duration-300 text-white"
+              style="background-color: #3f6a64; cursor:pointer;">
+              Day 1 - Saturday, Oct 4
+            </button>
+            <button id="day2-tab" type="button"
+              class="px-6 py-3 rounded-md font-semibold transition-all duration-300 text-gray-600 hover:text-gray-800"
+              style="background-color: transparent; cursor:pointer;">
+              Day 2 - Sunday, Oct 5
+            </button>
+          </div>
         </div>
-    </section>
-    <ScrollArrow href="#top"/>
+
+        <!-- Category Filter -->
+        <div id="sched-filter" class="flex flex-wrap gap-2 mb-6 justify-center">
+          <button class="filter-btn px-3 py-1 rounded-full text-sm font-medium text-white" data-cat="all" style="background:#193236; cursor:pointer;">All</button>
+          <button class="filter-btn px-3 py-1 rounded-full text-sm font-medium text-white" data-cat="ceremony" style="background:#2e5f5b; cursor:pointer;">Ceremony/Core</button>
+          <button class="filter-btn px-3 py-1 rounded-full text-sm font-medium text-white" data-cat="workshop" style="background:#3f6a64; cursor:pointer;">Workshops</button>
+          <button class="filter-btn px-3 py-1 rounded-full text-sm font-medium text-white" data-cat="food" style="background:#a9544d; cursor:pointer;">Food/Snacks</button>
+          <button class="filter-btn px-3 py-1 rounded-full text-sm font-medium text-white" data-cat="challenge" style="background:#193236; cursor:pointer;">Mini Fun Challenges</button>
+          <button class="filter-btn px-3 py-1 rounded-full text-sm font-medium text-white" data-cat="hacking" style="background:#2e5f5b; cursor:pointer;">BitBeat Bash</button>
+          <button class="filter-btn px-3 py-1 rounded-full text-sm font-medium text-white" data-cat="expo" style="background:#3f6a64; cursor:pointer;">Networking</button>
+          <button class="filter-btn px-3 py-1 rounded-full text-sm font-medium text-white" data-cat="deadline" style="background:#a9544d; cursor:pointer;">Deadlines</button>
+        </div>
+
+        <!-- Day 1 Schedule -->
+        <div id="day1-schedule" class="rounded-xl p-8 card-hover"
+            style="background: linear-gradient(135deg, #f4e7d7 0%, rgba(63, 106, 100, 0.1) 100%);">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead>
+                <tr style="border-bottom: 2px solid #3f6a64;">
+                  <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Activity</th>
+                  <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Room</th>
+                  <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Time</th>
+                </tr>
+              </thead>
+              <tbody style="color: #193236;">
+                <tr data-cat="ceremony" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                  <td class="py-4 px-4 font-medium text-lg">Check In</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">Lobby space outside RB 2200</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">9:00 AM – 10:00 AM</td>
+                </tr>
+
+                <tr data-cat="ceremony" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                  <td class="py-4 px-4 font-medium text-lg">Opening Ceremony & Theme Reveal</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">RB 2200</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">10:00 AM – 11:00 AM</td>
+                </tr>
+
+                <tr data-cat="ceremony" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                  <td class="py-4 px-4 font-medium text-lg">Find your people (team formation)</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">RB 2200</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">11:00 AM – 11:30 AM</td>
+                </tr>
+
+                <tr data-cat="workshop" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                  <td class="py-4 px-4 font-medium text-lg">Workshop 1 (Game Dev)</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">11:30 AM – 1:00 PM</td>
+                </tr>
+
+                <tr data-cat="hacking" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                  <td class="py-4 px-4 font-medium text-lg">BitBeat Bash</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">RB 2200</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">12:30 PM – 7:00 PM</td>
+                </tr>
+
+                <tr data-cat="food" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                  <td class="py-4 px-4 font-medium text-lg">Lunch + Networking</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">RB 3112</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">1:00 PM – 2:00 PM</td>
+                </tr>
+
+                <tr data-cat="challenge" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                  <td class="py-4 px-4 font-medium text-lg">Code Poetry</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">2:00 PM – 2:30 PM</td>
+                </tr>
+
+                <tr data-cat="workshop" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                  <td class="py-4 px-4 font-medium text-lg">Workshop 2 (Blueprint)</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">2:30 PM – 4:00 PM</td>
+                </tr>
+
+                <tr data-cat="workshop" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                  <td class="py-4 px-4 font-medium text-lg">Workshop 3 (P3)</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">4:00 PM – 5:00 PM</td>
+                </tr>
+
+                <tr data-cat="food" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                  <td class="py-4 px-4 font-medium text-lg">Evening Snacks</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">RB 3112</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">5:00 PM – 5:30 PM</td>
+                </tr>
+
+                <tr data-cat="workshop" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                  <td class="py-4 px-4 font-medium text-lg">Workshop 4</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">5:30 PM – 6:00 PM</td>
+                </tr>
+
+                <!-- Parallel sessions -->
+                <tr data-cat="challenge" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                  <td class="py-4 px-4 font-medium text-lg">Logo Remix</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">6:00 PM – 6:30 PM</td>
+                </tr>
+                <tr data-cat="challenge" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                  <td class="py-4 px-4 font-medium text-lg">“Pitch, Please!”</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">6:00 PM – 6:30 PM</td>
+                </tr>
+
+                <tr data-cat="ceremony" class="hover:bg-white/50 transition-colors">
+                  <td class="py-4 px-4 font-medium text-lg">That’s it for the day!<br><span class="text-sm opacity-80">Don’t forget to commit your progress!</span></td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">—</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">7:00 PM</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Day 2 Schedule -->
+        <div id="day2-schedule" class="rounded-xl p-8 card-hover hidden"
+            style="background: linear-gradient(135deg, #f4e7d7 0%, rgba(169, 84, 77, 0.1) 100%);">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead>
+                <tr style="border-bottom: 2px solid #a9544d;">
+                  <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Activity</th>
+                  <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Room</th>
+                  <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Time</th>
+                </tr>
+              </thead>
+              <tbody style="color: #193236;">
+                <tr data-cat="food" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                  <td class="py-4 px-4 font-medium text-lg">Light Breakfast</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">RB 3112</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">9:30 AM – 10:00 AM</td>
+                </tr>
+
+                <tr data-cat="expo" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                  <td class="py-4 px-4 font-medium text-lg">Network Nest</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">10:00 AM – 12:00 PM</td>
+                </tr>
+
+                <tr data-cat="hacking" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                  <td class="py-4 px-4 font-medium text-lg">BitBeat Bash 2.0</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">RB 2200</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">10:00 AM – 4:00 PM</td>
+                </tr>
+
+                <tr data-cat="workshop" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                  <td class="py-4 px-4 font-medium text-lg">Workshop 5</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">12:00 PM – 1:00 PM</td>
+                </tr>
+
+                <tr data-cat="food" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                  <td class="py-4 px-4 font-medium text-lg">Lunch + Networking</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">RB 3112</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">1:00 PM – 2:00 PM</td>
+                </tr>
+
+                <tr data-cat="workshop" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                  <td class="py-4 px-4 font-medium text-lg">Workshop 6</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">2:00 PM – 3:30 PM</td>
+                </tr>
+
+                <tr data-cat="deadline" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                  <td class="py-4 px-4 font-medium text-lg">Project Submission Deadline</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">Devpost</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">4:00 PM</td>
+                </tr>
+
+                <tr data-cat="deadline" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                  <td class="py-4 px-4 font-medium text-lg">Showcase Queue Announced</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">Discord + Email</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">4:00 PM – 4:30 PM</td>
+                </tr>
+
+                <tr data-cat="ceremony" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                  <td class="py-4 px-4 font-medium text-lg">Project Showcase</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">4:30 PM – 5:30 PM</td>
+                </tr>
+
+                <tr data-cat="food" class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                  <td class="py-4 px-4 font-medium text-lg">Light Snacks</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">RB 3112</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">5:30 PM – 6:00 PM</td>
+                </tr>
+
+                <tr data-cat="ceremony" class="hover:bg-white/50 transition-colors">
+                  <td class="py-4 px-4 font-medium text-lg">Awards & Closing</td>
+                  <td class="py-4 px-4" style="color: #3f6a64;">RB 2200</td>
+                  <td class="py-4 px-4 font-semibold" style="color: #a9544d;">6:00 PM – 7:00 PM</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16" style="background-color: #3f6a64;">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12" style="color: #f4e7d7;">Frequently Asked Questions</h2>
+      <div class="max-w-4xl mx-auto space-y-6">
+        <div class="rounded-lg shadow-md card-hover" style="background-color: #f4e7d7;">
+          <button onclick="toggleFAQ('faq1')" class="w-full text-left p-6 focus:outline-none">
+            <div class="flex justify-between items-center">
+              <h3 class="text-xl font-semibold" style="color: #193236;">Who can participate in Tech Nol Hack?</h3>
+              <span id="faq1-icon" class="text-2xl" style="color: #3f6a64;">+</span>
+            </div>
+          </button>
+          <div id="faq1" class="hidden px-6 pb-6">
+            <p class="leading-relaxed" style="color: #3f6a64;">Tech Nol Hack is open to all students, professionals, and tech enthusiasts aged 16 and above. Whether you're a beginner or an expert, we welcome participants from all skill levels, backgrounds and identities.</p>
+          </div>
+        </div>
+
+        <div class="rounded-lg shadow-md card-hover" style="background-color: #f4e7d7;">
+          <button onclick="toggleFAQ('faq2')" class="w-full text-left p-6 focus:outline-none">
+            <div class="flex justify-between items-center">
+              <h3 class="text-xl font-semibold" style="color: #193236;">What should I bring to the hackathon?</h3>
+              <span id="faq2-icon" class="text-2xl" style="color: #3f6a64;">+</span>
+            </div>
+          </button>
+          <div id="faq2" class="hidden px-6 pb-6">
+            <p class="leading-relaxed" style="color: #3f6a64;">Bring your laptop, chargers, any hardware you might need, and a positive attitude! We'll provide lunch, light snacks (FCFS), WiFi, and workspace. Don't forget your reusable WATER BOTTLE and mug if you like tea :)</p>
+          </div>
+        </div>
+
+        <div class="rounded-lg shadow-md card-hover" style="background-color: #f4e7d7;">
+          <button onclick="toggleFAQ('faq3')" class="w-full text-left p-6 focus:outline-none">
+            <div class="flex justify-between items-center">
+              <h3 class="text-xl font-semibold" style="color: #193236;">Are there prizes for winners?</h3>
+              <span id="faq3-icon" class="text-2xl" style="color: #3f6a64;">+</span>
+            </div>
+          </button>
+          <div id="faq3" class="hidden px-6 pb-6">
+            <p class="leading-relaxed" style="color: #3f6a64;">Yes! We have amazing prizes by the community, for the community (contributed by Carleton's Tech Community) - with thanks to our sponsors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collaborators Section -->
+  <section class="py-16" style="background-color:#f4e7d7;">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12" style="color:#193236;">Supporting Collaborators!</h2>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+        {collaborators.map((c: { name: string; url: string; logo: string; alt: string }) => (
+          <figure class="bg-gray-50 rounded-lg p-6 flex flex-col items-center justify-center card-hover">
+            <a href={c.url} target="_blank" rel="noopener noreferrer" class="block">
+              <img src={c.logo} alt={c.alt} class="h-16 w-auto object-contain" loading="lazy" />
+            </a>
+            <figcaption class="mt-3 text-sm font-semibold text-center" style="color:#193236;">
+              {c.name}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Sponsors Section -->
+  <section class="py-16 bg-gray-900 text-white" style="background-color: #193236;">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Our Shining Sponsors</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+        <div class="col-span-full text-center mb-8">
+          <h3 class="text-2xl font-semibold mb-6 text-yellow-400">Special Partner</h3>
+
+          <div class="bg-white rounded-lg p-8 inline-flex items-center justify-center shadow-lg mx-auto max-w-xs">
+            <a href="https://www.sciencesociety.ca/" target="_blank" rel="noopener noreferrer">
+              <img 
+                src="/csss.png" 
+                alt="Carleton Science Student Society" 
+                class="h-40 w-auto object-contain"
+                loading="lazy" 
+              />
+            </a>
+          </div>
+
+          <p class="text-lg font-medium mt-6 text-white">
+            Carleton Science Student Society
+          </p>
+        </div>
+
+        <div class="text-center">
+          <h3 class="text-xl font-semibold mb-4 text-gray-300">Alpha Sponsors</h3>
+          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 card-hover mb-4">
+            <div class="bg-white rounded-lg p-8 inline-flex items-center justify-center shadow-lg mx-auto max-w-xs">
+              <a href="https://www.linkedin.com/in/britney-baker-01b741160?trk=contact-info" target="_blank" rel="noopener noreferrer">
+                <img 
+                  src="/Britneybaker.png" 
+                  alt="Britney Baker" 
+                  class="h-40 w-auto object-contain"
+                  loading="lazy" 
+                />
+              </a>
+            </div>
+            <p class="font-medium mt-2">Britney Baker</p>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <h3 class="text-xl font-semibold mb-4 text-orange-300">Nano Sponsors</h3>
+          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 card-hover mb-4">
+            <a href="https://prototyp3.org/" target="_blank" rel="noopener noreferrer" class="flex justify-center">
+              <img 
+                src="/p3.png" 
+                alt="Prototyp3 Network" 
+                class="h-24 w-auto object-contain"
+                loading="lazy" 
+              />
+            </a>
+            <p class="font-medium mt-2">Prototyp3 Network</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <ScrollArrow href="#top"/>
 
   <script is:inline>
     function toggleFAQ(faqId) {
@@ -493,6 +472,7 @@ try {
       const day2Tab = document.getElementById("day2-tab");
       const day1 = document.getElementById("day1-schedule");
       const day2 = document.getElementById("day2-schedule");
+      const filterBtns = document.querySelectorAll('#sched-filter .filter-btn');
 
       function activate(tabEl, scheduleEl, otherTabEl, otherScheduleEl) {
         scheduleEl.classList.remove("hidden");
@@ -502,16 +482,38 @@ try {
         tabEl.style.color = "#f4e7d7";
         otherTabEl.style.backgroundColor = "transparent";
         otherTabEl.style.color = "#193236";
+
+        // Re-apply current filter to the newly active day
+        const activeBtn = document.querySelector('#sched-filter .filter-btn.active') || filterBtns[0];
+        applyFilter(activeBtn.dataset.cat);
       }
 
+      function applyFilter(cat) {
+        // Only filter the visible schedule
+        const visibleSchedule = document.querySelector('#day1-schedule:not(.hidden), #day2-schedule:not(.hidden)');
+        if (!visibleSchedule) return;
+        visibleSchedule.querySelectorAll('tbody tr[data-cat]').forEach(row => {
+          row.style.display = (cat === 'all' || row.dataset.cat === cat) ? '' : 'none';
+        });
+      }
+
+      // init: Day 1 active
       activate(day1Tab, day1, day2Tab, day2);
 
-      day1Tab.addEventListener("click", () =>
-        activate(day1Tab, day1, day2Tab, day2)
-      );
-      day2Tab.addEventListener("click", () =>
-        activate(day2Tab, day2, day1Tab, day1)
-      );
+      day1Tab.addEventListener("click", () => activate(day1Tab, day1, day2Tab, day2));
+      day2Tab.addEventListener("click", () => activate(day2Tab, day2, day1Tab, day1));
+
+      // filter button wiring
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          applyFilter(btn.dataset.cat);
+        });
+      });
+
+      // Default filter = All
+      filterBtns[0].classList.add('active');
     });
   </script>
 
@@ -527,5 +529,16 @@ try {
   .card-hover { transition: transform .3s ease, box-shadow .3s ease; }
   .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,.1); }
 
-</style>
+  /* Category color-coding (keeps filter + borders, no pills) */
+  tr[data-cat] { border-left: 6px solid transparent; }
+  tr[data-cat="ceremony"]  { border-left-color:#2e5f5b; }
+  tr[data-cat="workshop"]  { border-left-color:#3f6a64; }
+  tr[data-cat="food"]      { border-left-color:#a9544d; }
+  tr[data-cat="challenge"] { border-left-color:#193236; }
+  tr[data-cat="hacking"]   { border-left-color:#2e5f5b; }
+  tr[data-cat="expo"]      { border-left-color:#3f6a64; }
+  tr[data-cat="deadline"]  { border-left-color:#a9544d; }
 
+  /* filter button active state */
+  #sched-filter .filter-btn.active{ outline:2px solid #193236; outline-offset:2px; }
+</style>
