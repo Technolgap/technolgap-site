@@ -134,137 +134,185 @@ try {
                 <!-- Day 1 Schedule -->
                 <div id="day1-schedule" class="rounded-xl p-8 card-hover"
                     style="background: linear-gradient(135deg, #f4e7d7 0%, rgba(63, 106, 100, 0.1) 100%);">
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead>
-                                <tr style="border-bottom: 2px solid #3f6a64;">
-                                    <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Item
-                                    </th>
-                                    <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Room
-                                    </th>
-                                    <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Time
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody style="color: #193236;">
-                                <tr class="hover:bg-white/50 transition-colors"
-                                    style="border-bottom: 1px solid #3f6a64;">
-                                    <td class="py-4 px-4 font-medium text-lg">Registration & Check-in</td>
-                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">9:00 AM - 10:00 AM</td>
-                                </tr>
-                                <tr class="hover:bg-white/50 transition-colors"
-                                    style="border-bottom: 1px solid #3f6a64;">
-                                    <td class="py-4 px-4 font-medium text-lg">Opening Ceremony</td>
-                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">10:00 AM - 11:00 AM</td>
-                                </tr>
-                                <tr class="hover:bg-white/50 transition-colors"
-                                    style="border-bottom: 1px solid #3f6a64;">
-                                    <td class="py-4 px-4 font-medium text-lg">Team Formation</td>
-                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">11:00 AM - 11:30 AM</td>
-                                </tr>
-                                <tr class="hover:bg-white/50 transition-colors"
-                                    style="border-bottom: 1px solid #3f6a64;">
-                                    <td class="py-4 px-4 font-medium text-lg">Hacking Begins!</td>
-                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">11:00 AM - ...</td>
-                                </tr>
-                                <tr class="hover:bg-white/50 transition-colors"
-                                    style="border-bottom: 1px solid #3f6a64;">
-                                    <td class="py-4 px-4 font-medium text-lg">Lunch</td>
-                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">1:00 PM - 2:00 PM</td>
-                                </tr>
-                                <!-- <tr class="hover:bg-white/50 transition-colors"
-                                    style="border-bottom: 1px solid #3f6a64;">
-                                    <td class="py-4 px-4 font-medium text-lg">Disco.Dev</td>
-                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">2:00 PM - 7:00 PM</td>
-                                </tr> -->
-                                <tr class="hover:bg-white/50 transition-colors"
-                                    style="border-bottom: 1px solid #3f6a64;">
-                                    <td class="py-4 px-4 font-medium text-lg">Workshop 1</td>
-                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">3:00 PM - 4:30 PM</td>
-                                </tr>
-                                <tr class="hover:bg-white/50 transition-colors"
-                                    style="border-bottom: 1px solid #3f6a64;">
-                                    <td class="py-4 px-4 font-medium text-lg">Workshop 2</td>
-                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">4:30 PM - 5:30 PM</td>
-                                </tr>
-                                <tr class="hover:bg-white/50 transition-colors">
-                                    <td class="py-4 px-4 font-medium text-lg">Evening Snacks</td>
-                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">5:30 PM - 6:00 PM</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                  <div class="overflow-x-auto">
+                    <table class="w-full">
+                      <thead>
+                        <tr style="border-bottom: 2px solid #3f6a64;">
+                          <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Activity</th>
+                          <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Room</th>
+                          <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Time</th>
+                        </tr>
+                      </thead>
+                      <tbody style="color: #193236;">
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                          <td class="py-4 px-4 font-medium text-lg">Check In</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">Lobby space outside RB 2200</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">9:00 AM – 10:00 AM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                          <td class="py-4 px-4 font-medium text-lg">Opening Ceremony & Theme Reveal</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">RB 2200</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">10:00 AM – 11:00 AM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                          <td class="py-4 px-4 font-medium text-lg">Find your people (team formation)</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">RB 2200</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">11:00 AM – 11:30 AM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                          <td class="py-4 px-4 font-medium text-lg">Workshop 1 (Game Dev)</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">11:30 AM – 1:00 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                          <td class="py-4 px-4 font-medium text-lg">BitBeat Bash</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">RB 2200</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">12:30 PM – 7:00 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                          <td class="py-4 px-4 font-medium text-lg">Lunch + Networking</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">RB 3112</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">1:00 PM – 2:00 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                          <td class="py-4 px-4 font-medium text-lg">Code Poetry</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">2:00 PM – 2:30 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                          <td class="py-4 px-4 font-medium text-lg">Workshop 2 (Blueprint)</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">2:30 PM – 4:00 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                          <td class="py-4 px-4 font-medium text-lg">Workshop 3</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">4:00 PM – 5:00 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                          <td class="py-4 px-4 font-medium text-lg">Evening Snacks</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">RB 3112</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">5:00 PM – 5:30 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                          <td class="py-4 px-4 font-medium text-lg">Workshop 4</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">5:30 PM – 6:00 PM</td>
+                        </tr>
+
+                        <!-- Parallel sessions -->
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                          <td class="py-4 px-4 font-medium text-lg">Logo Remix</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">6:00 PM – 6:30 PM</td>
+                        </tr>
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #3f6a64;">
+                          <td class="py-4 px-4 font-medium text-lg">“Pitch, Please!”</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">6:00 PM – 6:30 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors">
+                          <td class="py-4 px-4 font-medium text-lg">That’s it for the day!<br><span class="text-sm opacity-80">Don’t forget to commit your progress!</span></td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">—</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">7:00 PM</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
 
                 <!-- Day 2 Schedule -->
                 <div id="day2-schedule" class="rounded-xl p-8 card-hover hidden"
                     style="background: linear-gradient(135deg, #f4e7d7 0%, rgba(169, 84, 77, 0.1) 100%);">
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead>
-                                <tr style="border-bottom: 2px solid #a9544d;">
-                                    <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Item
-                                    </th>
-                                    <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Room
-                                    </th>
-                                    <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Time
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody style="color: #193236;">
-                                <tr class="hover:bg-white/50 transition-colors"
-                                    style="border-bottom: 1px solid #a9544d;">
-                                    <td class="py-4 px-4 font-medium text-lg">Breakfast & Mentoring</td>
-                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">9:00 AM - 10:00 AM</td>
-                                </tr>
-                                <tr class="hover:bg-white/50 transition-colors"
-                                    style="border-bottom: 1px solid #a9544d;">
-                                    <td class="py-4 px-4 font-medium text-lg">Club EXPO & Career Fair</td>
-                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">10:00 AM - 12:00 PM</td>
-                                </tr>
-                                <tr class="hover:bg-white/50 transition-colors"
-                                    style="border-bottom: 1px solid #a9544d;">
-                                    <td class="py-4 px-4 font-medium text-lg">Lunch Break</td>
-                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">12:00 PM - 1:00 PM</td>
-                                </tr>
-                                <tr class="hover:bg-white/50 transition-colors"
-                                    style="border-bottom: 1px solid #a9544d;">
-                                    <td class="py-4 px-4 font-medium text-lg">Workshop 3</td>
-                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">1:00 PM - 2:00 PM</td>
-                                </tr>
-                                <tr class="hover:bg-white/50 transition-colors"
-                                    style="border-bottom: 1px solid #a9544d;">
-                                    <td class="py-4 px-4 font-medium text-lg">Final Submissions</td>
-                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">4:00 PM - 4:30 PM</td>
-                                </tr>
-                                <tr class="hover:bg-white/50 transition-colors"
-                                    style="border-bottom: 1px solid #a9544d;">
-                                    <td class="py-4 px-4 font-medium text-lg">Project Presentations</td>
-                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">5:00 PM - 6:00 PM</td>
-                                </tr>
-                                <tr class="hover:bg-white/50 transition-colors">
-                                    <td class="py-4 px-4 font-medium text-lg">Awards & Closing</td>
-                                    <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
-                                    <td class="py-4 px-4 font-semibold" style="color: #a9544d;">6:00 PM - 7:00 PM</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                  <div class="overflow-x-auto">
+                    <table class="w-full">
+                      <thead>
+                        <tr style="border-bottom: 2px solid #a9544d;">
+                          <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Activity</th>
+                          <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Room</th>
+                          <th class="text-left py-4 px-4 font-semibold text-lg" style="color: #193236;">Time</th>
+                        </tr>
+                      </thead>
+                      <tbody style="color: #193236;">
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                          <td class="py-4 px-4 font-medium text-lg">Light Breakfast</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">RB 3112</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">9:30 AM – 10:00 AM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                          <td class="py-4 px-4 font-medium text-lg">Network Nest</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">10:00 AM – 12:00 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                          <td class="py-4 px-4 font-medium text-lg">BitBeat Bash 2.0</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">RB 2200</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">10:00 AM – 4:00 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                          <td class="py-4 px-4 font-medium text-lg">Workshop 5</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">12:00 PM – 1:00 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                          <td class="py-4 px-4 font-medium text-lg">Lunch + Networking</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">RB 3112</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">1:00 PM – 2:00 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                          <td class="py-4 px-4 font-medium text-lg">Workshop 6</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">2:00 PM – 3:30 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                          <td class="py-4 px-4 font-medium text-lg">Project Submission Deadline</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">Devpost</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">4:00 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                          <td class="py-4 px-4 font-medium text-lg">Showcase Queue Announced</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">Discord + Email</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">4:00 PM – 4:30 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                          <td class="py-4 px-4 font-medium text-lg">Project Showcase</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">TBA</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">4:30 PM – 5:30 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors" style="border-bottom: 1px solid #a9544d;">
+                          <td class="py-4 px-4 font-medium text-lg">Light Snacks</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">RB 3112</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">5:30 PM – 6:00 PM</td>
+                        </tr>
+
+                        <tr class="hover:bg-white/50 transition-colors">
+                          <td class="py-4 px-4 font-medium text-lg">Awards & Closing</td>
+                          <td class="py-4 px-4" style="color: #3f6a64;">RB 2200</td>
+                          <td class="py-4 px-4 font-semibold" style="color: #a9544d;">6:00 PM – 7:00 PM</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
             </div>
         </div>
