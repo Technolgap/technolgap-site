@@ -4,25 +4,47 @@ import ScrollArrow from "../components/ScrollArrow.astro";
 
 const space   = import.meta.env.CONTENTFUL_SPACE_ID;
 const envName = import.meta.env.CONTENTFUL_ENVIRONMENT || "master";
-
-// flip to true for drafts
 const usePreview = false;
 
 const token = usePreview
   ? import.meta.env.CONTENTFUL_PREVIEW_TOKEN
   : import.meta.env.CONTENTFUL_DELIVERY_TOKEN;
 
-// GraphQL endpoint
 const endpoint = `https://graphql.contentful.com/content/v1/spaces/${space}/environments/${envName}`;
 
+// Combined query: collaborators + mentors
 const query = /* GraphQL */ `
-  query GetCollabTGH($limit: Int!, $preview: Boolean!) {
+  query GetPageData($limit: Int!, $preview: Boolean!) {
     collabtghCollection(limit: $limit, order: name_ASC, preview: $preview) {
       items {
         name
         link
         logo {
-          url(transform: { width: 320, height: 160, resizeStrategy: PAD, backgroundColor: "rgb:ffffff" })
+          url(transform: {
+            width: 320,
+            height: 160,
+            resizeStrategy: PAD,
+            backgroundColor: "rgb:ffffff"
+          })
+          description
+        }
+      }
+    }
+
+    mentorCollection(limit: $limit, order: order_ASC, preview: $preview) {
+      items {
+        name
+        title
+        link
+        photo {
+          url(transform: {
+            width: 192,
+            height: 192,
+            resizeStrategy: FILL,
+            resizeFocus: FACE,
+            quality: 80,
+            format: WEBP
+          })
           description
         }
       }
@@ -30,7 +52,11 @@ const query = /* GraphQL */ `
   }
 `;
 
-let collaborators: { name: string; url: string; logo: string; alt: string }[] = [];
+type Collaborator = { name: string; url: string; logo: string; alt: string };
+type Mentor = { name: string; title: string; photo: string; alt: string; link?: string };
+
+let collaborators: Collaborator[] = [];
+let mentors: Mentor[] = [];
 
 try {
   const res = await fetch(endpoint, {
@@ -46,12 +72,22 @@ try {
     console.error("Contentful error", res.status, await res.text());
   } else {
     const data = await res.json();
-    const items = data?.data?.collabtghCollection?.items ?? [];
-    collaborators = items.filter(Boolean).map((it: any) => ({
+
+    const collabItems = data?.data?.collabtghCollection?.items ?? [];
+    collaborators = collabItems.filter(Boolean).map((it: any) => ({
       name: it.name,
       url: it.link,
       logo: it.logo?.url?.startsWith("http") ? it.logo.url : `https:${it.logo?.url || ""}`,
       alt: it.logo?.description || it.name,
+    }));
+
+    const mentorItems = data?.data?.mentorCollection?.items ?? [];
+    mentors = mentorItems.filter(Boolean).map((it: any) => ({
+      name: it.name,
+      title: it.title,
+      link: it.link || undefined,
+      photo: it.photo?.url?.startsWith("http") ? it.photo.url : `https:${it.photo?.url || ""}`,
+      alt: it.photo?.description || it.name,
     }));
   }
 } catch (e) {
@@ -548,6 +584,51 @@ try {
       </div>
     </div>
   </section>
+
+  <!-- Challenges List Section -->
+
+
+
+
+
+
+
+  <!-- Mentors Section -->
+  <section class="py-16" style="background-color:#f4e7d7;">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12" style="color:#193236;">Meet the Mentors</h2>
+
+      {mentors.length === 0 ? (
+        <p class="text-center" style="color:#3f6a64;">Mentor list coming soon.</p>
+      ) : (
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8 max-w-6xl mx-auto">
+          {mentors.map((m) => (
+            <figure class="flex flex-col items-center text-center card-hover">
+              <a
+                href={m.link || "#"}
+                target={m.link ? "_blank" : undefined}
+                rel={m.link ? "noopener noreferrer" : undefined}
+                aria-label={`${m.name}${m.title ? " — " + m.title : ""}`}
+                class="block"
+              >
+                <img
+                  src={m.photo || "/avatar-fallback.png"}
+                  alt={m.alt || m.name}
+                  loading="lazy"
+                  class="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover ring-2 ring-[#3f6a64] shadow-md bg-white"
+                />
+              </a>
+              <figcaption class="mt-3">
+                <div class="font-semibold" style="color:#193236;">{m.name}</div>
+                {m.title && <div class="text-sm" style="color:#3f6a64; opacity:.9;">{m.title}</div>}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
 
   <!-- FAQ Section -->
   <section class="py-16" style="background-color: #3f6a64;">
