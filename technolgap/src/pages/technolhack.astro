@@ -49,14 +49,35 @@ const query = /* GraphQL */ `
         }
       }
     }
+
+    judgesCollection(limit: $limit, order: order_ASC, preview: $preview) {
+      items {
+        name
+        title
+        link
+        photo {
+          url(transform: {
+            width: 192,
+            height: 192,
+            resizeStrategy: FILL,
+            resizeFocus: FACE,
+            quality: 80,
+            format: WEBP
+          })
+          description
+        }
+      }
+    }
   }
 `;
 
 type Collaborator = { name: string; url: string; logo: string; alt: string };
 type Mentor = { name: string; title: string; photo: string; alt: string; link?: string };
+type Judges = { name: string; title: string; photo: string; alt: string; link?: string };
 
 let collaborators: Collaborator[] = [];
 let mentors: Mentor[] = [];
+let judges: Judges[] = [];
 
 try {
   const res = await fetch(endpoint, {
@@ -89,6 +110,16 @@ try {
       photo: it.photo?.url?.startsWith("http") ? it.photo.url : `https:${it.photo?.url || ""}`,
       alt: it.photo?.description || it.name,
     }));
+
+    const judgesItems = data?.data?.judgesCollection?.items ?? [];
+    judges = judgesItems.filter(Boolean).map((it: any) => ({
+      name: it.name,
+      title: it.title,
+      link: it.link || undefined,
+      photo: it.photo?.url?.startsWith("http") ? it.photo.url : `https:${it.photo?.url || ""}`,
+      alt: it.photo?.description || it.name,
+    }));
+
   }
 } catch (e) {
   console.error("Contentful fetch failed", e);
@@ -759,6 +790,43 @@ try {
       )}
     </div>
   </section>
+
+<!-- Judges Section -->
+<section class="py-16" style="background-color:#f4e7d7;">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-12" style="color:#193236;">Meet the Judges</h2>
+
+    {judges.length === 0 ? (
+      <p class="text-center" style="color:#3f6a64;">Judge list coming soon.</p>
+    ) : (
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8 max-w-6xl mx-auto">
+        {judges.map((j) => (
+          <figure class="flex flex-col items-center text-center card-hover">
+            <a
+              href={j.link || "#"}
+              target={j.link ? "_blank" : undefined}
+              rel={j.link ? "noopener noreferrer" : undefined}
+              aria-label={`${j.name}${j.title ? " — " + j.title : ""}`}
+              class="block"
+            >
+              <img
+                src={j.photo || "/avatar-fallback.png"}
+                alt={j.alt || j.name}
+                loading="lazy"
+                class="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover ring-2 ring-[#3f6a64] shadow-md bg-white"
+              />
+            </a>
+            <figcaption class="mt-3">
+              <div class="font-semibold" style="color:#193236;">{j.name}</div>
+              {j.title && <div class="text-sm" style="color:#3f6a64; opacity:.9;">{j.title}</div>}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
 
 
   <!-- FAQ Section -->
